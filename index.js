@@ -106,7 +106,7 @@ const initGame = (game) => {
   game.trick = [];
   game.ledSuit = false;
   game.passing = true;
-  game.passDirection = "across";
+  game.passDirection = "left";
 
   let hands = deal();
   for (let i = 0; i < 4; i++) {
