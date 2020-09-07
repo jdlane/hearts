@@ -1,6 +1,7 @@
 .player1 {
-  text-align: left;
-  width: 10%;
+  text-align: right;
+  width: 18%;
+  margin-right: 5%;
   display: inline-block;
   word-break: break-all;
 }
@@ -11,8 +12,9 @@
 }
 
 .player3 {
-  text-align: right;
-  width: 10%;
+  text-align: left;
+  width: 18%;
+  margin-left: 5%;
   display: inline-block;
   word-break: break-all;
 }
@@ -24,7 +26,7 @@
 #table {
   border: 2px solid gray;
   text-align: center;
-  width: 75%;
+  width: 50%;
   height: 30%;
   padding: 10px;
   display: inline-table;
@@ -60,11 +62,27 @@
 .played-card-1 {
   text-align: left;
   display: inline !important;
-  margin-right: 40%;
+  margin-right: 20%;
 }
 
 .played-card-3 {
   text-align: right;
   display: inline !important;
-  margin-left: 40%;
+  margin-left: 20%;
+}
+
+.table-card-1 {
+  -webkit-transform: rotate(90deg);
+  -moz-transform: rotate(90deg);
+  -o-transform: rotate(90deg);
+  -ms-transform: rotate(90deg);
+  transform: rotate(90deg);
+}
+
+.table-card-3 {
+  -webkit-transform: rotate(90deg);
+  -moz-transform: rotate(90deg);
+  -o-transform: rotate(90deg);
+  -ms-transform: rotate(90deg);
+  transform: rotate(90deg);
 }
