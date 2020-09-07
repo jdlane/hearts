@@ -23,7 +23,7 @@ app.use("/", express.static(path.join(__dirname, "public")));
 const sessionMiddleware = session({
   secret: "secret",
   resave: false,
-  store: new (require("connect-pg-simple")(session))(),
+  //store: new (require("connect-pg-simple")(session))(),
   saveUninitialized: false,
 });
 app.use(sessionMiddleware);
