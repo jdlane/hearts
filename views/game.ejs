@@ -1,0 +1,133 @@
+<HTML>
+  <head>
+    <link rel="stylesheet" href="css/game.css" />
+  </head>
+  <body>
+    <span id="players">
+      <div id="top">
+        <div
+          class="player2"
+          id="real-player-<%= player2.realIndex %>"
+          style="<% if(turn === player2.realIndex){ %>background-color: yellow<% } %>"
+        >
+          <%= player2.name %>
+        </div>
+        <div class="player2" id="score-<%= player2.realIndex %>">
+          <%= player2.points %>
+        </div>
+      </div>
+      <div class="middle">
+        <div class="player1">
+          <p
+            id="real-player-<%= player1.realIndex %>"
+            style="<% if(turn === player1.realIndex){ %>background-color: yellow<% } %>"
+          >
+            <%= player1.name %>
+          </p>
+          <p id="score-<%= player1.realIndex %>"><%= player1.points %></p>
+        </div>
+        <div id="table">
+          <div class="played-card-2 card-div">
+            <div id="real-card-<%= player2.realIndex %>" class="card-text">
+              <%= trick[player2.realIndex].card %>
+            </div>
+            <img
+              src="/cards/<%= trick[player2.realIndex].card %>.png"
+              class="card-img"
+              id="table-img-<%= player2.realIndex %>"
+            />
+          </div>
+          <div class="played-card-1 card-div">
+            <div id="real-card-<%= player1.realIndex %>" class="card-text">
+              <%= trick[player1.realIndex].card %>
+            </div>
+            <img
+              src="/cards/<%= trick[player1.realIndex].card %>.png"
+              class="card-img"
+              id="table-img-<%= player1.realIndex %>"
+            />
+          </div>
+          <div class="played-card-3 card-div">
+            <div id="real-card-<%= player3.realIndex %>" class="card-text">
+              <%= trick[player3.realIndex].card %>
+            </div>
+            <img
+              src="/cards/<%= trick[player3.realIndex].card %>.png"
+              class="card-img"
+              id="table-img-<%= player3.realIndex %>"
+            />
+          </div>
+          <div class="player-card-4 card-div">
+            <div id="real-card-<%= thisPlayer.realIndex %>" class="card-text">
+              <%= trick[thisPlayer.realIndex].card %>
+            </div>
+            <img
+              src="/cards/<%= trick[thisPlayer.realIndex].card %>.png"
+              class="card-img"
+              id="table-img-<%=
+          thisPlayer.realIndex %>"
+            />
+          </div>
+        </div>
+        <div class="player3">
+          <p
+            id="real-player-<%= player3.realIndex %>"
+            style="<% if(turn === player3.realIndex){ %>background-color: yellow<% } %>"
+          >
+            <%= player3.name %>
+          </p>
+          <p id="score-<%= player3.realIndex %>"><%= player3.points %></p>
+        </div>
+      </div>
+      <div class="bottom">
+        <div
+          class="this-player"
+          id="real-player-<%= thisPlayer.realIndex %>"
+          style="<% if(turn === thisPlayer.realIndex){ %>background-color: yellow<% } %>"
+        >
+          <div class="this-player-name" id="my-name">
+            <%= thisPlayer.name %>
+          </div>
+          <div class="this-player-name" id="score-<%= thisPlayer.realIndex %>">
+            <%= thisPlayer.points %>
+          </div>
+          <div id="hand">
+            <% for(var i = 0;i < 13; i++){ %>
+            <div
+              class="card"
+              style="<%= thisPlayer.cards.length >
+              i ? '' : 'display: none' %>"
+            >
+              <button id="play-card-<%= i %>" class="card-btn">
+                <span id="card-data-<%= i %>" class="card-text">
+                  <% if(thisPlayer.cards.length > i){ %> <%= thisPlayer.cards[i]
+                  %> <% }else{ %> blank <% } %>
+                </span>
+                <img
+                  class="card-img"
+                  src="/cards/<%= thisPlayer.cards.length > i ? thisPlayer.cards[i] : 'blank' %>.png"
+                />
+              </button>
+            </div>
+            <% } %>
+          </div>
+          <p id="error"></p>
+          <div id="pass-div">
+            <button id="pass-btn">
+              Pass Cards
+              <div id="pass-direction">Left</div>
+            </button>
+          </div>
+          <div id="shot-moon-div" style="display: none">
+            <button id="moon-0-btn">Lose 26 Points</button>
+            <button id="moon-1-btn">Give Everyone Else 26 Points</button>
+          </div>
+        </div>
+      </div>
+    </span>
+    <div id="trick"></div>
+
+    <script src="/socket.io/socket.io.js"></script>
+    <script src="/js/game.js"></script>
+  </body>
+</HTML>
