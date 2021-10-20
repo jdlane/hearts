@@ -1,45 +1,56 @@
 <html>
+  <head>
+    <link rel="stylesheet" href="css/index.css" />
+  </head>
   <body>
-    <h4 id="status">Find a game</h4>
-    <form id="find-field">
-    <div>
-    <label for="name-field">Name</label>
-    <input id="name-field"></input>
-    </div>
-    <div id="choice-div">
-    <% if(firstPlayer){ %>
-    <div id="game-choices">
-    <div>
-    <label for="jod-field">Play with Jack of Diamonds</label>
-    <input type="checkbox" id="jod-field" checked />
-    </div>
-    <div>
-    <label for="to-100">Play to 100</label>
-    <input type="radio" name="max-score" id="to-100" checked/>
-    <label for="to-50">Play to 50</label>
-    <input type="radio" name="max-score" id="to-50" />
-    </div>
-    </div>
-    <% } %>
-    </div>
-    <div>
-    <input type="submit" id="find-btn" value="Find Game"/>
-    </div>
-  </form>
-      <ul id="game-rules">
-    <% if(!firstPlayer){ %>
-      <% if(jod){ %>
-      <li id="jod-rule">
-        Jack of Diamonds -10
-      </li>
-      <% } %>
-      <li>
-         Playing to <%= maxScore %> points   
-      </li>
-    <% } %>
+      <h1 id="status">Find a game</h1>
+      <h2>
+        <span class="red-text">&diamondsuit;</span>
+        <span class="black-text">&clubsuit;</span>
+        <span class="red-text">&heartsuit;</span>
+        <span class="black-text">&spadesuit;</span>
+      </h2>
+      <form id="find-field" class="page-info">
+        <div>
+          <label for="name-field">Name</label>
+          <input id="name-field"></input>
+        </div>
+        <div id="choice-div">
+          <% if(firstPlayer){ %>
+              <div id="game-choices">
+              <div>
+                <label for="jod-field">Play with Jack of Diamonds</label>
+                <input type="checkbox" id="jod-field" checked />
+              </div>
+              <div>
+                <label for="to-100">Play to 100</label>
+                <input type="radio" name="max-score" id="to-100" checked/>
+                <label for="to-50">Play to 50</label>
+                <input type="radio" name="max-score" id="to-50" />
+              </div>
+            </div>
+          <% } %>
+        </div>
+        <div>
+          <input type="submit" id="find-btn" value="Find Game"/>
+        </div>
+      </form>
+      <div class="page-info">
+        <ul id="game-rules">
+          <% if(!firstPlayer){ %>
+            <% if(jod){ %>
+              <li id="jod-rule">
+                Jack of Diamonds -10
+              </li>
+            <% } %>
+              <li>
+                Playing to <%= maxScore %> points   
+              </li>
+          <% } %>
         </ul>
-    <p id="name-tag"></p>
-    <p id="player-count"></p>
+      <p id="name-tag"></p>
+      <p id="player-count"></p>
+  </div>
     <script src="/socket.io/socket.io.js"></script>
     <script src="/js/index.js"></script>
   </body>
